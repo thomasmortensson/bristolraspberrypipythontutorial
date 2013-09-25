@@ -131,7 +131,7 @@ Sample answers will be given in the session and afterwards will be uploaded to:
 
 \subsection{IF Statements and Boolean Logic}
 
-So far in our programming tutorial we have focused on mostly static concepts. In a typical program flow control is used to provide a dynamic datapath. All programs will have an Input, Process and Output stage. Without a form of flow control we will always be limited in what we can build. As this is the case we will now introduce the concept of an IF statement. An IF statement is a comparison operator. In Computer Science information is processed as Binary - 0's and 1's, these 0's and 1's represent the fundamental building blocks of how a computer operates. We will not go too deeply into how Binary works however it is of note that a 1 can represent the value True and the value 0 can represent False. An IF statement allows a computer to execute a comparison based upon the conditions set by a programmer. For example the statement ``3 $\>$ 2'' will evaluate to True as the number 3 is larger than the number 2. If we use an IF statement we can chose to begin a branch of execution based upon this result:
+So far in our programming tutorial we have focused on mostly static concepts. In a typical program flow control is used to provide a dynamic datapath. All programs will have an Input, Process and Output stage. Without a form of flow control we will always be limited in what we can build. As this is the case we will now introduce the concept of an IF statement. An IF statement is a comparison operator. In Computer Science information is processed as Binary - 0's and 1's, these 0's and 1's represent the fundamental building blocks of how a computer operates. We will not go too deeply into how Binary works however it is of note that a 1 can represent the value True and the value 0 can represent False. An IF statement allows a computer to execute a comparison based upon the conditions set by a programmer. For example the statement ``3 $>$ 2'' will evaluate to True as the number 3 is larger than the number 2. If we use an IF statement we can chose to begin a branch of execution based upon this result:
 \begin{lstlisting}
 if(3>2):
 	print "3 is greater than 2"
@@ -147,41 +147,118 @@ else:
 \end{lstlisting}
 You can change the value of True in your source file from True to False to alter the program's output.
 
+A core concept governing how we use IF statements is boolean logic. The 3 main operators as a programmer you will be required to know are how to use AND, OR and NOT operators. These operators work according to these 3 definitions:
+\begin{itemize}
+	\item AND - returns True if both x and y are true, otherwise the value of false. 
+	\item OR - returns True if x is True, or if y is True, or if both x and y are true. Otherwise the value is false.
+	\item NOT - returns True if x is False and False if x is True.
+\end{itemize}
+This can be seen in the following Truth Tables - You don't need to remember this, just keep it as a reference.
+
 \begin{center}
-	\begin{tabular}{| l | l | l |} 
+	\begin{tabular}{| l | l || l |} 
 		\hline
 		x & y & x AND y \\ \hline
-		0 & 0 & 0 \\
-		0 & 1 & 0 \\
-		1 & 0 & 0 \\
-		1 & 1 & 1 \\
+		False & False & False \\
+		False & True & False \\
+		True & False & False \\
+		True & True & True \\
 		\hline
 	\end{tabular}
 \end{center}
 
+\begin{center}
+	\begin{tabular}{| l | l || l |} 
+		\hline
+		x & y & x OR y \\ \hline
+		False & False & False \\
+		False & True & True \\
+		True & False & True \\
+		True & True & True \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
+	\begin{tabular}{| l || l | } 
+		\hline
+		x & NOT x \\ \hline
+		False & True \\
+		True & False \\
+		\hline
+	\end{tabular}
+\end{center}
+Try the following code by changing the values of apple and orange from True and False to see the effect this has on the and or and not operations.
+\begin{lstlisting}
+apple = True
+orange = False
+if apple and orange:
+	print "Have both fruits"
+if not apple:
+	print "Don't have an apple"
+if apple or orange:
+	print "Have a fruit"
+\end{lstlisting}
+Once we understand AND, OR and NOT we can progress to comparison operators. Comparison operators are extremely useful for comparing numbers in IF statements. There are 5 comparisons you will need to be aware of, these are:
 \begin{center}
 	\begin{tabular}{| l | l | l |} 
 		\hline
-		x & y & x OR y \\ \hline
-		0 & 0 & 0 \\
-		0 & 1 & 1 \\
-		1 & 0 & 1 \\
-		1 & 1 & 1 \\
+		Maths & Programming & Description\\ \hline
+		$<$ & $<$ & Less Than\\
+		$\le$ & $<=$ & Less Than or Equal\\
+		$=$ & $==$ & Equal\\
+		$\ge$ & $>=$ & Greater Than or Equal\\
+		$>$ & $>$ & Greater Than\\
 		\hline
 	\end{tabular}
 \end{center}
+We can test these operators in the following interactive program:
+\begin{lstlisting}
+below_test = 5
+above_test = 10
+equals_test = 8
 
-\begin{center}
-	\begin{tabular}{| l | l | } 
-		\hline
-		x & NOT x \\ \hline
-		0 & 1 \\
-		0 & 0 \\
-		\hline
-	\end{tabular}
-\end{center}
+current_num = int(raw_input("Num: "))
+
+if current_num < below_test:
+	print 1
+
+if current_num <= below_test:
+	print 2
+
+if current_num == equals_test:
+	print 3
+
+if current_num >= above_test:
+	print 4
+
+if current_num > above_test:
+	print 5
+\end{lstlisting}
+We can see that by using different numbers we can get different return values. Try using the values 3,5,6,8,10 and 11 and see if you can predict what numbers the program will return.
 
 \subsection{Loops}
+We have now covered many base concepts such as variables, expressions, operators, input and output as well as IF statements and Boolean logic. We will now build upon these concepts to introduce the concept of a loop. Computers are useful to us not only due to what they can process but also due to the fact that we can program them to iterate across large datasets. Computers are a perfect solution in situations where a human would take months or years to complete a particular repetitive task. To repeat a task (or iterate) we require the use of a construct called a LOOP.
+
+Here is your first loop:
+\begin{lstlisting}
+for i in xrange(0, 10):
+	print i
+\end{lstlisting}
+This will print out the first 10 numbers starting from 0 and counting up to 9. In Computer Science (and most programming languages) counting is done from 0
+
+A loop is useful however it's usefulness is greatly increased by using some form of comparison within the loop body. This is demonstrated in this code:
+\begin{lstlisting}
+below_test = 4
+above_test = 7
+
+for i in xrange(0,10):
+	if i < below_test:
+		print i, "- BELOW"
+	if i > above_test:
+		print i, "- ABOVE"
+\end{lstlisting}
+Here we print out BELOW when the iterating variable i is below 4 and ABOVE when it is above 7.
 
 \subsection{Exercise 2}
 
