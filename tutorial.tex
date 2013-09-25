@@ -31,6 +31,23 @@ Requirements for this programming session are  few as the session is designed to
 
 \subsection{Python shell}
 
+The Python Shell is a brilliant tool allowing us to interactively start programming. What this means is that we can type commands and get instant results allowing us to see the path of execution of our program and build it up step by step. To open the Python Shell look on the Raspberry Pi Desktop for an icon saying LXTerminal and click that. once that opens you should be presented with a black box which says:
+\begin{lstlisting}
+pi@raspberrypi ~ $
+\end{lstlisting}
+what you need to do is type in ``python'' and hit enter. You should then be presented with:
+\begin{lstlisting}
+pi@raspberrypi ~ $ python
+Python 2.7.3 (default, Jan 13 2013,
+ 11:20:46)
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or
+ "license" for more information.
+>>>
+\end{lstlisting}
+Congratulations, you're there!
+
+
 \subsection{Hello World!}
 
 In this first example we will build a simple hello world application. The purpose of building this application is to familiarize a new programmer with the python programming interface. The Hello world program simply outputs the words ``Hello World!" to the computers display. We generate the hello world program by typing the following into the Python shell:\\
@@ -265,11 +282,57 @@ In this piece of code we have also introduced comments. A comment is a way of wr
 
 \subsection{Functions}
 
-The last core concept we will try to teach in this document is the concept of functions. So far there has been a bit of repetition in our code, if we wanted to add numbers we had to do this manually each time. With a function call we can segmentise and modularise different elements of our program. This helps us remove repetition and redundant code and allows us to make single large changes very quickly. For example if I build a function that's sole purpose is to add two numbers, I can then use this function in my code. If later I decide I want to instead subtract thoise 2 numbers in all cases where I have used my function I can change that line in one place rather than having to change every addition symbol to a subtraction symbol (and potentially forgetting some and introducing errors into my code). Functions allow us to logically divide a program to allow for more complex execution. In the simple examples we provide you may see less of a use for functions however when you have chunks of code 30 lines long which are similar you will want to start using functions to modularise and simplify your work. We have briefly touched on some basic functions likely without you realising. When we write a function we denote it by writing it's name and putting brackets at the end of it's name. If the function takes an input, we put that input between the brackets. We have already used the type() function. e.g ``print integer, type(integer)'' in the section Types and we have used the raw\_input() function in the Variables
+The last core concept we will try to teach in this document is the concept of functions. So far there has been a bit of repetition in our code, if we wanted to add numbers we had to do this manually each time. With a function call we can segmentise and modularise different elements of our program. This helps us remove repetition and redundant code and allows us to make single large changes very quickly. For example if I build a function that's sole purpose is to add two numbers, I can then use this function in my code. If later I decide I want to instead subtract thoise 2 numbers in all cases where I have used my function I can change that line in one place rather than having to change every addition symbol to a subtraction symbol (and potentially forgetting some and introducing errors into my code). Functions allow us to logically divide a program to allow for more complex execution. In the simple examples we provide you may see less of a use for functions however when you have chunks of code 30 lines long which are similar you will want to start using functions to modularise and simplify your work. We have briefly touched on some basic functions likely without you realising. When we write a function we denote it by writing it's name and putting brackets at the end of it's name. If the function takes an input, we put that input between the brackets. We have already used the type() function. e.g ``print integer, type(integer)'' in the section Types and we have used the raw\_input() function in the Variables section. Inthe following example we will define a dunction print\_hello() (Which takes 0 inputs) and we will run it in a loop.
+\begin{lstlisting}
+def print_hello():
+	print "Hello World"
+
+for i in xrange(0, 10):
+	print_hello()
+\end{lstlisting}
+We can see that we have offloaded the work of printing hello world to a function rather than calling ``print \"Hello World!\"'' from within our loop.\\
+\\
+Expanding from this we can now create a function add() which can take 2 input parameters, we will have each parameter being a number to add. This is shown in the next example:
+\begin{lstlisting}
+def add(num1, num2):
+	result = num1 + num2
+	return result
+
+res = 0
+for i in xrange(0, 10):
+	new_res = add(res, i)
+	print res, "+", i, "=", new_res
+	res = new_res
+\end{lstlisting}
+See if you can guess the program flow before running the program, write on a piece of paper what you think the program will output before running it. This is a simple example of how we can use functions to offload work to the computer. Using a combination of a function and a for loop we have saved us having to write 10 seperate lines of addition. You can see how this can only help more in longer programs.
+
 
 \section{Further Reading}
 
 \subsection{Raspberry Pi Hardware with Python - GPIO}
+
+In this last additional section I will show you how to do some extremely basic hardware interaction using the concepts of Python we have learnt in the tutorial sections. A brilliant website to show exactly what is going on here in more depth is: \url{http://code.google.com/p/raspberry-gpio-python/wiki/BasicUsage}\\
+\\
+\begin{lstlisting}
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(16, GPIO.OUT)
+GPIO.output(16, 0)
+off = False
+while True:
+        if(off):
+                GPIO.output(16,1)
+                off = False
+        else:
+                GPIO.output(16,0)
+                off = True
+        time.sleep(1)
+\end{lstlisting}
+The first 2 lines, the import lines, tell Python to load some libraries it has stored (additional code), we use RPi.GPIO to interact with the GPIO pins and time to cause a delay with time.sleep(1).\\
+\\
+In the next 3 lines we have to setup the GPIO pins to allow us to use them, the first line tells the program what configuration the pins are in (Pinouts can be found here /url{http://www.hobbytronics.co.uk/raspberry-pi-gpio-pinout}), the second line tells the program to set PIN16 as an output and the 3rd line tells us to set the initial value of PIN16 to 0 (OFF). We then have a loop which cycles PIN16 from OFF to ON and back with a time delay of 1 second. We use a Boolean ``off'' to keep track of the state of the LED light so we know to turn it on or off within our loop. The overall output of the program should be a blinking LED if you attach an LED correctly to PIN16 and GROUND.
 
 
 
