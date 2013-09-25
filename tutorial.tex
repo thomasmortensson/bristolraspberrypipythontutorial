@@ -1,14 +1,45 @@
 % Thomas Mortensson - September 2013
 
 \documentclass[twocolumn]{article}
-\usepackage{}
+\usepackage[margin=0.5in]{geometry}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{booktabs}
+
+\definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
+\definecolor{highlight}{RGB}{255,251,204} % Code highlight color
+
+\lstdefinestyle{Style1}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
+language=Perl, % Detects keywords, comments, strings, functions, etc for the language specified
+backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
+basicstyle=\footnotesize\ttfamily, % The default font size and style of the code
+breakatwhitespace=false, % If true, only allows line breaks at white space
+breaklines=true, % Automatic line breaking (prevents code from protruding outside the box)
+captionpos=b, % Sets the caption position: b for bottom; t for top
+commentstyle=\usefont{T1}{pcr}{m}{sl}\color{DarkGreen}, % Style of comments within the code - dark green courier font
+deletekeywords={}, % If you want to delete any keywords from the current language separate them by commas
+%escapeinside={\%}, % This allows you to escape to LaTeX using the character in the bracket
+firstnumber=1, % Line numbers begin at line 1
+frame=single, % Frame around the code box, value can be: none, leftline, topline, bottomline, lines, single, shadowbox
+frameround=tttt, % Rounds the corners of the frame for the top left, top right, bottom left and bottom right positions
+keywordstyle=\color{Blue}\bf, % Functions are bold and blue
+morekeywords={}, % Add any functions no included by default here separated by commas
+numbers=left, % Location of line numbers, can take the values of: none, left, right
+numbersep=10pt, % Distance of line numbers from the code box
+numberstyle=\tiny\color{Gray}, % Style used for line numbers
+rulecolor=\color{black}, % Frame border color
+showstringspaces=false, % Don't put marks in string spaces
+showtabs=false, % Display tabs in the code as lines
+stepnumber=5, % The step distance between line numbers, i.e. how often will lines be numbered
+stringstyle=\color{Purple}, % Strings are purple
+tabsize=2, % Number of spaces per tab in the code
+}
 
 \begin{document}
-\lstset{language=Python,showstringspaces=false,frame=tlrb}
+\lstset{style=Style1}
 
-\title{Introduction to Programming Workshop - Python} 
+\title{Introduction to Programming Workshop --- Python} 
 \author{Thomas Mortensson and Ben Collins\\
         	Computer Science Department,\\
 		University of Bristol,\\
@@ -142,43 +173,44 @@ You can change the value of True in your source file from True to False to alter
 
 A core concept governing how we use IF statements is boolean logic. The 3 main operators as a programmer you will be required to know are how to use AND, OR and NOT operators. These operators work according to these 3 definitions:
 \begin{itemize}
-	\item AND - returns True if both x and y are true, otherwise the value of false. 
-	\item OR - returns True if x is True, or if y is True, or if both x and y are true. Otherwise the value is false.
-	\item NOT - returns True if x is False and False if x is True.
+	\item AND --- returns True if both x and y are true, otherwise the value of false. 
+	\item OR --- returns True if x is True, or if y is True, or if both x and y are true. Otherwise the value is false.
+	\item NOT --- returns True if x is False and False if x is True.
 \end{itemize}
-This can be seen in the following Truth Tables - You don't need to remember this, just keep it as a reference.
+This can be seen in the following Truth Tables --- You don't need to remember this, just keep it as a reference.
 
 \begin{center}
-	\begin{tabular}{| l | l || l |} 
-		\hline
-		x & y & x AND y \\ \hline
+	\begin{tabular}{lll} 
+		\toprule
+		x & y & x AND y \\
+		\midrule
 		False & False & False \\
 		False & True & False \\
 		True & False & False \\
 		True & True & True \\
-		\hline
+		\bottomrule
 	\end{tabular}
-\end{center}
-
-\begin{center}
-	\begin{tabular}{| l | l || l |} 
-		\hline
-		x & y & x OR y \\ \hline
+	\quad
+	\begin{tabular}{lll} 
+		\toprule
+		x & y & x OR y \\
+		\midrule
 		False & False & False \\
 		False & True & True \\
 		True & False & True \\
 		True & True & True \\
-		\hline
+		\bottomrule
 	\end{tabular}
 \end{center}
 
 \begin{center}
-	\begin{tabular}{| l || l | } 
-		\hline
-		x & NOT x \\ \hline
+\begin{tabular}{ll} 
+		\toprule
+		x & NOT x \\
+		\midrule
 		False & True \\
 		True & False \\
-		\hline
+		\bottomrule
 	\end{tabular}
 \end{center}
 Try the following code by changing the values of apple and orange from True and False to see the effect this has on the and or and not operations.
@@ -194,15 +226,16 @@ if apple or orange:
 \end{lstlisting}
 Once we understand AND, OR and NOT we can progress to comparison operators. Comparison operators are extremely useful for comparing numbers in IF statements. There are 5 comparisons you will need to be aware of, these are:
 \begin{center}
-	\begin{tabular}{| l | l | l |} 
-		\hline
-		Maths & Programming & Description\\ \hline
+	\begin{tabular}{lll} 
+		\toprule
+		Maths & Programming & Description\\
+		\midrule
 		$<$ & $<$ & Less Than\\
 		$\le$ & $<=$ & Less Than or Equal\\
 		$=$ & $==$ & Equal\\
 		$\ge$ & $>=$ & Greater Than or Equal\\
 		$>$ & $>$ & Greater Than\\
-		\hline
+		\bottomrule
 	\end{tabular}
 \end{center}
 We can test these operators in the following interactive program:
