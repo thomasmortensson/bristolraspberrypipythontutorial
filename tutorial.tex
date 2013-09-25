@@ -7,6 +7,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{booktabs}
 
+\renewcommand{\familydefault}{\sfdefault}
 \definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color
 
@@ -49,9 +50,9 @@ tabsize=2, % Number of spaces per tab in the code
 \maketitle
 
 \begin{abstract}
-This tutorial focused class will introduce participants to the core concepts of Python on a Raspberry Pi. Programming learned in this session is transferable to many different platforms and it's use is not limited to the Raspberry Pi Hardware.\\
+    This session will introduce you to the basics of programming, using the programming language Python and a Raspberry Pi. Programming learnt in this session are transferable since Python is a very popular language - meaning you can use these skills on your home computer, not just your Raspberry Pi.\\
 \\
-Requirements for this programming session are  few as the session is designed to be workable on any machine with Python 2.x installed.
+Requirements for this programming session are few as the session is designed to be workable on any machine with Python 2.x installed. Any Raspberry Pi should already meet this requirement!
 \end{abstract}
 
 \section{Introduction to Python - What is it?}
@@ -62,7 +63,7 @@ Requirements for this programming session are  few as the session is designed to
 
 \subsection{Python shell}
 
-The Python Shell is a brilliant tool allowing us to interactively start programming. What this means is that we can type commands and get instant results allowing us to see the path of execution of our program and build it up step by step. To open the Python Shell look on the Raspberry Pi Desktop for an icon saying LXTerminal and click that. once that opens you should be presented with a black box which says:
+The Python Shell is a brilliant tool allowing us to interactively start programming. What this means is that we can type commands and get instant results, allowing us to see what each line of our program does. To open the Python Shell look on the Raspberry Pi Desktop for an icon saying LXTerminal and click that. Once that opens you should be presented with a black box which says:
 \begin{lstlisting}
 pi@raspberrypi ~ $
 \end{lstlisting}
@@ -81,7 +82,7 @@ Congratulations, you're there!
 
 \subsection{Hello World!}
 
-In this first example we will build a simple hello world application. The purpose of building this application is to familiarize a new programmer with the python programming interface. The Hello world program simply outputs the words ``Hello World!" to the computers display. We generate the hello world program by typing the following into the Python shell:\\
+In this first example we will build a simple Hello World application. The purpose of building this application is to familiarize a new programmer with how to write a simple program in Python. The Hello World program simply outputs the words ``Hello World!" to the computer's display. We generate the Hello World program by typing the following into the Python shell:\\
 
 \begin{lstlisting}
 print "Hello World!"
@@ -104,7 +105,7 @@ If we take this a step further we can use something called a variable to store t
 i = 2 + 5
 print i
 \end{lstlisting}
-We have created a variable called ``i'' and we set it's value to be 7, we then print the value of i which is 7.\\
+We have created a variable called ``i'' and we set it's value to be 7; we then print the value of i (which is 7). Note that we could have named the variable anything - we just chose ``i'' since it is a traditional name for a variable.\\
 \\
 Try the following code:
 \begin{lstlisting}
@@ -172,7 +173,7 @@ The function raw\_input() takes data written to the standard input (In this case
 
 \subsection{IF Statements and Boolean Logic}
 
-So far in our programming tutorial we have focused on mostly static concepts. In a typical program flow control is used to provide a dynamic datapath. All programs will have an Input, Process and Output stage. Without a form of flow control we will always be limited in what we can build. As this is the case we will now introduce the concept of an IF statement. An IF statement is a comparison operator. In Computer Science information is processed as Binary - 0's and 1's, these 0's and 1's represent the fundamental building blocks of how a computer operates. We will not go too deeply into how Binary works however it is of note that a 1 can represent the value True and the value 0 can represent False. An IF statement allows a computer to execute a comparison based upon the conditions set by a programmer. For example the statement ``3 $>$ 2'' will evaluate to True as the number 3 is larger than the number 2. If we use an IF statement we can chose to begin a branch of execution based upon this result:
+So far in our programming tutorial we have created programs that simply run whatever you have written. However, in a typical program we may not want to run all lines, but work out which lines should be run depending on what the user does. All programs will have an Input, Process and Output stage. Without a form of flow control we will always be limited in what we can build. As this is the case we will now introduce the concept of an IF statement. An IF statement uses a comparison to control the flow of a program. In Computer Science information is processed as Binary - 0's and 1's. These 0's and 1's represent the fundamental building blocks of how a computer operates. We will not go too deeply into how Binary works - however, note that a 1 can represent the value True and the value 0 can represent False. An IF statement allows a computer to execute a comparison based upon the conditions set by a programmer. For example the statement ``3 $>$ 2'' will evaluate to True as the number 3 is larger than the number 2. If we use an IF statement we can choose to begin a branch of execution based upon this result:
 \begin{lstlisting}
 if(3>2):
 	print "3 is greater than 2"
@@ -278,7 +279,7 @@ if current_num >= above_test:
 if current_num > above_test:
 	print 5
 \end{lstlisting}
-We can see that by using different numbers we can get different return values. Try using the values 3,5,6,8,10 and 11 and see if you can predict what numbers the program will return.
+We can see that by using different numbers we can get different return values. Try setting the variable ``current\_num'' to the values 3, 5, 6, 8, 10 and 11 and see if you can predict what numbers the program will return.
 
 \subsection{Loops}
 We have now covered many base concepts such as variables, expressions, operators, input and output as well as IF statements and Boolean logic. We will now build upon these concepts to introduce the concept of a loop. Computers are useful to us not only due to what they can process but also due to the fact that we can program them to iterate across large datasets. Computers are a perfect solution in situations where a human would take months or years to complete a particular repetitive task. To repeat a task (or iterate) we require the use of a construct called a LOOP.
@@ -288,7 +289,7 @@ Here is your first loop:
 for i in xrange(0, 10):
 	print i
 \end{lstlisting}
-This will print out the first 10 numbers starting from 0 and counting up to 9. In Computer Science (and most programming languages) counting is done from 0
+This will print out the first 10 numbers starting from 0 and counting up to 9. In Computer Science (and most programming languages) counting is done from 0.
 
 A loop is useful however it's usefulness is greatly increased by using some form of comparison within the loop body. This is demonstrated in this code:
 \begin{lstlisting}
@@ -301,7 +302,7 @@ for i in xrange(0,10):
 	if i > above_test:
 		print i, "- ABOVE"
 \end{lstlisting}
-Here we print out BELOW when the iterating variable i is below 4 and ABOVE when it is above 7.\\
+Here we print out BELOW when the variable i is less than 4 and ABOVE when it is greater than 7.\\
 \\
 We can add a new operator, modulo, into the mix to help us demonstrate the usage of AND, OR and NOT in a loop in our next example. Modulo works by working out the remainder if a number is divided by another number. For example 3 \% 2 = 1 because 3 divided by 2 = 2 remainder 1. We can use modulo and check for a remainder of 0 to check if a number is cleanly divisible by another number. You will see what we mean in this next example:
  \begin{lstlisting}
@@ -315,7 +316,7 @@ In this piece of code we have also introduced comments. A comment is a way of wr
 
 \subsection{Functions}
 
-The last core concept we will try to teach in this document is the concept of functions. So far there has been a bit of repetition in our code, if we wanted to add numbers we had to do this manually each time. With a function call we can segmentise and modularise different elements of our program. This helps us remove repetition and redundant code and allows us to make single large changes very quickly. For example if I build a function that's sole purpose is to add two numbers, I can then use this function in my code. If later I decide I want to instead subtract thoise 2 numbers in all cases where I have used my function I can change that line in one place rather than having to change every addition symbol to a subtraction symbol (and potentially forgetting some and introducing errors into my code). Functions allow us to logically divide a program to allow for more complex execution. In the simple examples we provide you may see less of a use for functions however when you have chunks of code 30 lines long which are similar you will want to start using functions to modularise and simplify your work. We have briefly touched on some basic functions likely without you realising. When we write a function we denote it by writing it's name and putting brackets at the end of it's name. If the function takes an input, we put that input between the brackets. We have already used the type() function. e.g ``print integer, type(integer)'' in the section Types and we have used the raw\_input() function in the Variables section. Inthe following example we will define a dunction print\_hello() (Which takes 0 inputs) and we will run it in a loop.
+The last core concept we will try to teach in this document is the concept of functions. So far there has been a bit of repetition in our code - if we wanted to add numbers we had to do this manually each time. With a function call we can split apart different sections of our program. This helps us remove repetition, and allows us to make single large changes very quickly. For example if I build a function that's sole purpose is to add two numbers, I can then use this function in my code. If later I decide I want to instead subtract those 2 numbers in all cases where I have used my function I can change that line in one place rather than having to change every addition symbol to a subtraction symbol (and potentially forgetting some and introducing errors into my code). Functions allow us to logically divide a program to allow for more complex execution. In the simple examples we provide you may see less of a use for functions - however, when you have chunks of code 30 lines long which are similar you will want to start using functions to simplify your work (and save yourself a lot of time!). We have briefly touched on some basic functions likely without you realising. When we write a function we denote it by writing it's name and putting brackets at the end of it's name. If the function takes an input, we put that input between the brackets. We have already used the type() function. e.g ``print integer, type(integer)'' in the section Types and we have used the raw\_input() function in the Variables section. In the following example we will define a function print\_hello() (which takes 0 inputs) and we will run it in a loop.
 \begin{lstlisting}
 def print_hello():
 	print "Hello World"
