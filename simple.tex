@@ -1,28 +1,26 @@
-% simple.tex - A simple article to illustrate document structure.
-
-% Andrew Roberts - June 2003
+% Thomas Mortensson - September 2013
 
 \documentclass[twocolumn]{article}
 \usepackage{}
 \usepackage{listings}
+\usepackage{hyperref}
 
 \begin{document}
-\lstset{language=Python,showstringspaces=false}
+\lstset{language=Python,showstringspaces=false,frame=tlrb}
 
-% Article top matter
 \title{Introduction to Programming Workshop - Python} 
 \author{Thomas Mortensson and Ben Collins\\
         	Computer Science Department,\\
 		University of Bristol,\\
 		\texttt{tm0797@bristol.ac.uk, 
-		bc0517@bristol.ac.uk}}  %\texttt formats the text to a typewriter style font
-\date{\today}  %\today is replaced with the current date
+		bc0517@bristol.ac.uk}} 
+\date{\today} 
 \maketitle
 
 \begin{abstract}
 This tutorial focused class will introduce participants to the core concepts of Python on a Raspberry Pi. Programming learned in this session is transferrable to many different platforms and it's use is not limited to the Raspberry Pi Hardware.\\
-
- Requirements for this programming session are  few as the session is designed to be workable on any machine with Python 2.x installed.
+\\
+Requirements for this programming session are  few as the session is designed to be workable on any machine with Python 2.x installed.
 \end{abstract}
 
 \section{Introduction to Python - What is it?}
@@ -35,24 +33,91 @@ This tutorial focused class will introduce participants to the core concepts of 
 
 \subsection{Hello World!}
 
-In this first example we will build a simple hello world application. The purpose of building this application is to familiarise a new programmer with the python programming interface. The Hello world program simply outputs the words ``Hello World!" to the computers display. We generate the hello world program by typing the following into the Python shell: 
-
+In this first example we will build a simple hello world application. The purpose of building this application is to familiarise a new programmer with the python programming interface. The Hello world program simply outputs the words ``Hello World!" to the computers display. We generate the hello world program by typing the following into the Python shell:\\
 
 \begin{lstlisting}
-
 print "Hello World!"
-
 \end{lstlisting}
+After pressing Enter to execute the line in Python Shell the computer should respond with a line printed on the standard output: Hello World!\\ The quotation marks around the words signify that this portion of data is a string. More on this in the Types section. You can modify this program to write anything to the screen.
 
 
 \subsection{Variables and Assignment}
 
+In the previous section we completed the most basic starter program you will encounter in any programming languague. We learnt how to output or print to the screen. We will now extend this by printing the sum of two numbers to the screen. Below is some example code to try:
+
+\begin{lstlisting}
+print 2 + 5
+\end{lstlisting}
+Can you guess what this will print to the screen? Try running this in your Python Shell, This will not produce the output ``2 + 5''. Instead as we have removed the quotation marks from the input, Python instead or reading the characters we've typed as a String now interprets the characters as two numbers with an addition symbol. Python will execute this ``Expression'' and return the correct result of 7. \\
+\\
+If we take this a step further we can use something called a variable to store the result of our calculation before we print it. This is shown in the below code:
+
+ \begin{lstlisting}
+i = 2 + 5
+print i
+\end{lstlisting}
+We have created a variable called ``i'' and we set it's value to be 7, we then print the value of i which is 7.\\
+\\
+Try the following code:
+\begin{lstlisting}
+i = 2 + 5
+i = i * 3
+print i
+\end{lstlisting}
+Write here what you expect the program to print to the screen:\_\_\_\\
+\\
+Now run this program in your Python Shell, what is the result?\\
+\\
+When we calculate expressions we must be careful to obey the laws of BIDMAS, more on this here: \url{http://www.bbc.co.uk/bitesize/ks3/maths/number/order\_operation/revision/2/}\\
+For Example:
+\begin{lstlisting}
+i = 2 + 1
+i = i * 6
+i = i / 3
+i = i - 1
+print i
+
+j = 2 + 1 * 6 / 3 - 1
+print j
+
+k = ((((2 + 1) * 6) / 3) - 1)
+print k
+\end{lstlisting}
+This program shows the different outputs obtained by using and not using the rules of BIDMAS.\\
+\\
+Another form of expression we will cover is called String concatenation. To concatenate two Strings means to join them together. For example if I wanted to concatenate ``Hello '' and ``World!'' into ``Hello World!'' we use a comma between our two strings as demonstrated in this program
+\begin{lstlisting}
+name = "World!"
+print "Hello ", name
+\end{lstlisting}
 \subsection{Types}
+When we reference Types in the context of a programming languague we are trying to define the format of the data structures we are manipulating. Python as all programming languagues will make use of different types to store different pieces of data. Examples of basic Types are Integer, Float, String and Boolean. An Integer is any number without a decimal component. For example the number 3 is an integer however 3.1 is not. A floating point number (or Float) is a number which does include a decimal point. Examples of a float are -3.1 or 5.0 (Beware of the difference between 5.0 and 5). A String is used to define text, we have used strings previously to define words in our Hello World program. Strings are denoted by the quotation marks that surround them, e.g. "Hello" is a String however Hello is not. Python automatically assigns types to variables when they are used based on what data you have stored in them. We can see what data type Python has assigned by using the function type() (More on functions later on!). This is demonstrated in this example:
+\begin{lstlisting}
+integer = 5
+float_number = 1.2
+string = "Ben"
+boolean = True
 
-\subsection{Producing out first source file!}
-
+print integer, type(integer)
+print float_number, type(float_number)
+print string, type(string)
+print boolean, type(boolean)
+\end{lstlisting}
+This should print out the types of all the variables you have defined!
+\subsection{Producing our first source file!}
+So far in our Python experience we have been running all of our programs interactively in the Python Shell. While this may be good for building quick programs or for some brief debug, the vast majority of the time as a programmer you will want to save your work. To build a Python source file we write the commands we have been writing in the shell directly into a blank text file. Once you have written the commands you wish to execute you have to save your program as your\_program\_name\_here.py . I reccomend you save your source files in the home directory (This may be called pi on your Raspberry Pi) and you execute them by opening a Linux Terminal 
+%%INSERT DIAGRAM HERE
+ and typing
+\begin{lstlisting}
+python your_program_name_here.py
+\end{lstlisting}
+Try creating a source file with your Hello World program in and running it.
 \subsection{User Input}
-
+Many times when you are producing a program in Python you will want to take some form of input from the user. This is done in Python as using the raw\_input function:
+\begin{lstlisting}
+name = raw_input("Enter your name: ") 
+print "Hello", name
+\end{lstlisting}
 \subsection{Exercise 1}
 
 \subsection{IF Statements and Boolean Logic}
@@ -71,4 +136,4 @@ print "Hello World!"
 
 
 
-\end{document}  %End of document.
+\end{document} 
