@@ -122,13 +122,6 @@ print "Hello", name
 \end{lstlisting}
 The function raw\_input() takes data written to the standard input (In this case the Linux terminal's text input) and stores it in a local variable. We are storing in a variable called name in this instance. The raw\_input() function will store data in what is deemed the relevant datatype. For example if I write a name, type(name) will evaluate to a String. If 3.0 is entered a type(name) will evaluate to float etc. In this code snippet we also use standard output (as in the Hello World program) and String concatenation. 
 
-\subsection{Exercise 1}
-
-For our first exercise we will build upon the concepts we have learned in the first few sections to build ourselves a simple addition machine.\\ For the next 5 minutues your task will be to design a program that reads in 2 different numbers from standard input (storing the values in variables), produces a result from the addition of the two variables and finally prints out the result of the calculation to standard output.
-
-Sample answers will be given in the session and afterwards will be uploaded to:
-%% Add in Url
-
 \subsection{IF Statements and Boolean Logic}
 
 So far in our programming tutorial we have focused on mostly static concepts. In a typical program flow control is used to provide a dynamic datapath. All programs will have an Input, Process and Output stage. Without a form of flow control we will always be limited in what we can build. As this is the case we will now introduce the concept of an IF statement. An IF statement is a comparison operator. In Computer Science information is processed as Binary - 0's and 1's, these 0's and 1's represent the fundamental building blocks of how a computer operates. We will not go too deeply into how Binary works however it is of note that a 1 can represent the value True and the value 0 can represent False. An IF statement allows a computer to execute a comparison based upon the conditions set by a programmer. For example the statement ``3 $>$ 2'' will evaluate to True as the number 3 is larger than the number 2. If we use an IF statement we can chose to begin a branch of execution based upon this result:
@@ -258,13 +251,19 @@ for i in xrange(0,10):
 	if i > above_test:
 		print i, "- ABOVE"
 \end{lstlisting}
-Here we print out BELOW when the iterating variable i is below 4 and ABOVE when it is above 7.
-
-\subsection{Exercise 2}
+Here we print out BELOW when the iterating variable i is below 4 and ABOVE when it is above 7.\\
+\\
+We can add a new operator, modulo, into the mix to help us demonstrate the usage of AND, OR and NOT in a loop in our next example. Modulo works by working out the remainder if a number is divided by another number. For example 3 \% 2 = 1 because 3 divided by 2 = 2 remainder 1. We can use modulo and check for a remainder of 0 to check if a number is cleanly divisible by another number. You will see what we mean in this next example:
+ \begin{lstlisting}
+for i in xrange(0,50):
+#	if (i % 2 == 0 or i % 5 == 0):
+#	if (i % 2 == 0 and i % 5 == 0):
+#	if (not i % 2 == 0):
+		print i
+\end{lstlisting}
+In this piece of code we have also introduced comments. A comment is a way of writing a line of code and not executing it, Typically comments are used to document code and make it more readable however we can use them in this instance to turn on or off lines of execution. To comment out a line we add a Hash symbol (\#) to the beginning of the line, this will mean that the computer skips that line. When you execute this program as it is it will first output the numbers from 0 to 49, if we remove the comment from the 2nd line this program will output all numbers between 0 and 49 which are even or divisible by 5. If we re-comment the 2nd line and uncomment the 3rd line the program will now output all numbers between 0 and 49 which are even and divisible by 5. This will therefore only print out multiples of 10. If we comment the 3rd line again and un-comment the 4th line we will now print all numbers between 0 and 49 which are not even - i.e. all of the odd numbers. Try this for yourself by changing where the comments are or the numbers the program is checking for divisibility.
 
 \subsection{Functions}
-
-\subsection{Exercise 3}
 
 \section{Further Reading}
 
