@@ -18,7 +18,7 @@
 \maketitle
 
 \begin{abstract}
-This tutorial focused class will introduce participants to the core concepts of Python on a Raspberry Pi. Programming learned in this session is transferrable to many different platforms and it's use is not limited to the Raspberry Pi Hardware.\\
+This tutorial focused class will introduce participants to the core concepts of Python on a Raspberry Pi. Programming learned in this session is transferable to many different platforms and it's use is not limited to the Raspberry Pi Hardware.\\
 \\
 Requirements for this programming session are  few as the session is designed to be workable on any machine with Python 2.x installed.
 \end{abstract}
@@ -33,7 +33,7 @@ Requirements for this programming session are  few as the session is designed to
 
 \subsection{Hello World!}
 
-In this first example we will build a simple hello world application. The purpose of building this application is to familiarise a new programmer with the python programming interface. The Hello world program simply outputs the words ``Hello World!" to the computers display. We generate the hello world program by typing the following into the Python shell:\\
+In this first example we will build a simple hello world application. The purpose of building this application is to familiarize a new programmer with the python programming interface. The Hello world program simply outputs the words ``Hello World!" to the computers display. We generate the hello world program by typing the following into the Python shell:\\
 
 \begin{lstlisting}
 print "Hello World!"
@@ -43,7 +43,7 @@ After pressing Enter to execute the line in Python Shell the computer should res
 
 \subsection{Variables and Assignment}
 
-In the previous section we completed the most basic starter program you will encounter in any programming languague. We learnt how to output or print to the screen. We will now extend this by printing the sum of two numbers to the screen. Below is some example code to try:
+In the previous section we completed the most basic starter program you will encounter in any programming language. We learnt how to output or print to the screen. We will now extend this by printing the sum of two numbers to the screen. Below is some example code to try:
 
 \begin{lstlisting}
 print 2 + 5
@@ -91,21 +91,23 @@ name = "World!"
 print "Hello ", name
 \end{lstlisting}
 \subsection{Types}
-When we reference Types in the context of a programming languague we are trying to define the format of the data structures we are manipulating. Python as all programming languagues will make use of different types to store different pieces of data. Examples of basic Types are Integer, Float, String and Boolean. An Integer is any number without a decimal component. For example the number 3 is an integer however 3.1 is not. A floating point number (or Float) is a number which does include a decimal point. Examples of a float are -3.1 or 5.0 (Beware of the difference between 5.0 and 5). A String is used to define text, we have used strings previously to define words in our Hello World program. Strings are denoted by the quotation marks that surround them, e.g. "Hello" is a String however Hello is not. Python automatically assigns types to variables when they are used based on what data you have stored in them. We can see what data type Python has assigned by using the function type() (More on functions later on!). This is demonstrated in this example:
+When we reference Types in the context of a programming language we are trying to define the format of the data structures we are manipulating. Python as all programming languagues will make use of different types to store different pieces of data. Examples of basic Types are Integer, Float, String and Boolean. An Integer is any number without a decimal component. For example the number 3 is an integer however 3.1 is not. A floating point number (or Float) is a number which does include a decimal point. Examples of a float are -3.1 or 5.0 (Beware of the difference between 5.0 and 5). A String is used to define text, we have used strings previously to define words in our Hello World program. Strings are denoted by the quotation marks that surround them, e.g. "Hello" is a String however Hello is not. Python automatically assigns types to variables when they are used based on what data you have stored in them. We can see what data type Python has assigned by using the function type() (More on functions later on!). This is demonstrated in this example:
 \begin{lstlisting}
 integer = 5
 float_number = 1.2
 string = "Ben"
 boolean = True
+integer2 = int("3")
 
 print integer, type(integer)
 print float_number, type(float_number)
 print string, type(string)
 print boolean, type(boolean)
+print integer2, type(integer2)
 \end{lstlisting}
-This should print out the types of all the variables you have defined!
+This should print out the types of all the variables you have defined! Note: we are using a system called typecasting to define integer2, this allows us to explicitly force the computer to use a specific datatype for a variable (we are converting ``3'' - A String  $\rightarrow$ 3 - An Integer)
 \subsection{Producing our first source file!}
-So far in our Python experience we have been running all of our programs interactively in the Python Shell. While this may be good for building quick programs or for some brief debug, the vast majority of the time as a programmer you will want to save your work. To build a Python source file we write the commands we have been writing in the shell directly into a blank text file. Once you have written the commands you wish to execute you have to save your program as your\_program\_name\_here.py . I reccomend you save your source files in the home directory (This may be called pi on your Raspberry Pi) and you execute them by opening a Linux Terminal 
+So far in our Python experience we have been running all of our programs interactively in the Python Shell. While this may be good for building quick programs or for some brief debug, the vast majority of the time as a programmer you will want to save your work. To build a Python source file we write the commands we have been writing in the shell directly into a blank text file. Once you have written the commands you wish to execute you have to save your program as your\_program\_name\_here.py . I recommend you save your source files in the home directory (This may be called pi on your Raspberry Pi) and you execute them by opening a Linux Terminal 
 %%INSERT DIAGRAM HERE
  and typing
 \begin{lstlisting}
@@ -113,14 +115,71 @@ python your_program_name_here.py
 \end{lstlisting}
 Try creating a source file with your Hello World program in and running it.
 \subsection{User Input}
-Many times when you are producing a program in Python you will want to take some form of input from the user. This is done in Python as using the raw\_input function:
+Many times when you are producing a program in Python you will need to take some form of input from the user. This is done in Python using the raw\_input function:
 \begin{lstlisting}
 name = raw_input("Enter your name: ") 
 print "Hello", name
 \end{lstlisting}
+The function raw\_input() takes data written to the standard input (In this case the Linux terminal's text input) and stores it in a local variable. We are storing in a variable called name in this instance. The raw\_input() function will store data in what is deemed the relevant datatype. For example if I write a name, type(name) will evaluate to a String. If 3.0 is entered a type(name) will evaluate to float etc. In this code snippet we also use standard output (as in the Hello World program) and String concatenation. 
+
 \subsection{Exercise 1}
 
+For our first exercise we will build upon the concepts we have learned in the first few sections to build ourselves a simple addition machine.\\ For the next 5 minutues your task will be to design a program that reads in 2 different numbers from standard input (storing the values in variables), produces a result from the addition of the two variables and finally prints out the result of the calculation to standard output.
+
+Sample answers will be given in the session and afterwards will be uploaded to:
+%% Add in Url
+
 \subsection{IF Statements and Boolean Logic}
+
+So far in our programming tutorial we have focused on mostly static concepts. In a typical program flow control is used to provide a dynamic datapath. All programs will have an Input, Process and Output stage. Without a form of flow control we will always be limited in what we can build. As this is the case we will now introduce the concept of an IF statement. An IF statement is a comparison operator. In Computer Science information is processed as Binary - 0's and 1's, these 0's and 1's represent the fundamental building blocks of how a computer operates. We will not go too deeply into how Binary works however it is of note that a 1 can represent the value True and the value 0 can represent False. An IF statement allows a computer to execute a comparison based upon the conditions set by a programmer. For example the statement ``3 $\>$ 2'' will evaluate to True as the number 3 is larger than the number 2. If we use an IF statement we can chose to begin a branch of execution based upon this result:
+\begin{lstlisting}
+if(3>2):
+	print "3 is greater than 2"
+\end{lstlisting}
+
+We can extend this concept further by also having an else clause, a clause that is executed when the condition tested does not hold true. This is demonstrated in the next piece of code:
+\begin{lstlisting}
+works = True # Alternate this value
+if works:
+	print "This Works!"
+else:
+	print "This Doesn't Work!"
+\end{lstlisting}
+You can change the value of True in your source file from True to False to alter the program's output.
+
+\begin{center}
+	\begin{tabular}{| l | l | l |} 
+		\hline
+		x & y & x AND y \\ \hline
+		0 & 0 & 0 \\
+		0 & 1 & 0 \\
+		1 & 0 & 0 \\
+		1 & 1 & 1 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
+	\begin{tabular}{| l | l | l |} 
+		\hline
+		x & y & x OR y \\ \hline
+		0 & 0 & 0 \\
+		0 & 1 & 1 \\
+		1 & 0 & 1 \\
+		1 & 1 & 1 \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begin{center}
+	\begin{tabular}{| l | l | } 
+		\hline
+		x & NOT x \\ \hline
+		0 & 1 \\
+		0 & 0 \\
+		\hline
+	\end{tabular}
+\end{center}
 
 \subsection{Loops}
 
