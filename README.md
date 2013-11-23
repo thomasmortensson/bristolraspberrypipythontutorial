@@ -7,7 +7,7 @@ This is very much a beginner session however it is designed to be accessible. We
 
 This session is regularly held in Bristol at the DigiMakers events held at @Bristol by the Bristol University Computer Science department. Search EventBrite and the Bristol University websites for DigiMakers for details of our next session.
 
-Tutorials initially written by Thomas Mortensson and Ben Collins with support from Graham Laming. Thanks go to Robert Briggs for initial Latex support.
+Tutorials initially written by Thomas Mortensson and Ben Collins with support from Graham Laming. Thanks go to Robert Briggs for initial LaTeX support.
 
 Session has been tested 7 times to date as of 23/11/2013.
 
@@ -25,7 +25,7 @@ e.g.
 
 <h2>Usage</h2>
 
-This session is centred around a handout document called TeachingGuide.pdf. This guide is written in Latex and can be edited via a file called TeachingGuide.tex.
+This session is centred around a handout document called TeachingGuide.pdf. This guide is written in LaTeX and can be edited via a file called TeachingGuide.tex.
 
 The session is supplied with a basic exercise sheet titled ExerciseSheet.pdf. This is written in Apple Pages however we have also attached a Word Document compatible version suitable for editing by Teachers. We reccomend you come up with your own Exercise sheets as this sheet is very basic and limited in it's scope. It can be used successfully for a first session.
 
