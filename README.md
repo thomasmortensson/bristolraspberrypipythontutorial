@@ -21,3 +21,13 @@ Mac (Python preinstalled)
 Windows (Download python from http://www.python.org/download/)
 Linux (Search for "installing pyton distro" where distro is your linux distro - many will ship with Python by default)
 
+Usage:
+
+This session is centred around a handout document called TeachingGuide.pdf. This guide is written in Latex and can be edited via a file called TeachingGuide.tex.
+
+The session is supplied with a basic exercise sheet titled ExerciseSheet.pdf. This is written in Apple Pages however we have also attached a Word Document compatible version suitable for editing by Teachers. We reccomend you come up with your own Exercise sheets as this sheet is very basic and limited in it's scope. It can be used successfully for a first session.
+
+Working Python Source code to the workshop is included in a folder called python_workshop_code_samples. You may want to download and test this code before running a session. This code also includes answers to an additional Exercise 3 which is not included in the Exercise Document.
+
+The Exercise document is split in 2 halves. One has questions and the second has answers, this has been done to make it easier for teachers to produce handouts. The main TeachingGuide has been limited in this iteration to 4 pages to allow for easier duplex printing. The colours chosen should work well printed in Colour or in Black and White. Similarly the Exercise sheet is a 1 page handout for students and a duplexable 2 page printout for teachers to minimise printing costs. 
+
