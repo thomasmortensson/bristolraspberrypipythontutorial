@@ -11,17 +11,19 @@ Tutorials initially written by Thomas Mortensson and Ben Collins with support fr
 
 Session has been tested 7 times to date as of 23/11/2013.
 
-PRE-REQUIREMENTS:
+<h2>Pre-requirements</h2>
 
 A Raspberry Pi flashed with the default Raspbian image.
+
 OR
+
 Any machine capable of running Python (This guide is targetted at Python 2.7.x - much is still applicable to Python 3.x)
 e.g. 
-Mac (Python preinstalled)
-Windows (Download python from http://www.python.org/download/)
-Linux (Search for "installing pyton distro" where distro is your linux distro - many will ship with Python by default)
+* Mac (Python preinstalled)
+* Windows (Download python from http://www.python.org/download/)
+* Linux (Search for "installing pyton distro" where distro is your linux distro - many will ship with Python by default)
 
-USAGE:
+<h2>Usage</h2>
 
 This session is centred around a handout document called TeachingGuide.pdf. This guide is written in Latex and can be edited via a file called TeachingGuide.tex.
 
