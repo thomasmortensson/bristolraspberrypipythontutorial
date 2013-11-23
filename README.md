@@ -11,7 +11,7 @@ Tutorials initially written by Thomas Mortensson and Ben Collins with support fr
 
 Session has been tested 7 times to date as of 23/11/2013.
 
-Pre-requirements for session:
+PRE-REQUIREMENTS:
 
 A Raspberry Pi flashed with the default Raspbian image.
 OR
@@ -21,7 +21,7 @@ Mac (Python preinstalled)
 Windows (Download python from http://www.python.org/download/)
 Linux (Search for "installing pyton distro" where distro is your linux distro - many will ship with Python by default)
 
-Usage:
+USAGE:
 
 This session is centred around a handout document called TeachingGuide.pdf. This guide is written in Latex and can be edited via a file called TeachingGuide.tex.
 
