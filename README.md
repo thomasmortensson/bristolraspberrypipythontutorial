@@ -1,4 +1,4 @@
-bristolraspberrypipythontutorial
+Bristol RaspberryPi Python Tutorial
 ================================
 
 This project is designed to allow people to pick up the included resources and teach a basic 1 hour lesson on some of the core concepts of programming within Python.
