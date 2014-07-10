@@ -51,7 +51,7 @@ tabsize=2, % Number of spaces per tab in the code
 
 \section{Introduction to Python - What is it?}
 
-Python is a high-level programming languague whith a main design goal of code readability. For this purpose it is an excellent introductory porogramming languague as it allows programs to be written in fewer lines of code, faster and in a way that is generally readable to even non programmers. Nowadays many operating systems are shipped with Python built in. Mac OS X and most versions of Linux (Including debian which is the operating system the Raspberry Pi runs) include Python by default. Python is often used for rapid prototyping due to it's large array of libraries. Programming skills learnt in this session are transferable - meaning you can use these skills on your home computer, not just your Raspberry Pi.
+Python is a high-level programming languague with a main design goal of code readability. For this purpose it is an excellent introductory programming languague as it allows programs to be written in fewer lines of code, faster and in a way that is generally readable to even non programmers. Nowadays many operating systems are shipped with Python built in. Mac OS X and most versions of Linux (Including debian which is the operating system the Raspberry Pi runs) include Python by default. Python is often used for rapid prototyping due to it's large array of libraries. Programming skills learnt in this session are transferable - meaning you can use these skills on your home computer, not just your Raspberry Pi.
 
 \section {Programming Python}
 
@@ -75,7 +75,7 @@ Congratulations, you're there!
 \subsection{Hello World!}
 
 In this first example we will build a simple Hello World application. The purpose of building this application is to familiarise a new programmer with how to write a simple program in Python. The Hello World program simply outputs the words ``Hello World!" to the computer's display. We generate the Hello World program by typing the following into the Python shell:\\
-
+%comment
 \begin{lstlisting}
 print "Hello World!"
 \end{lstlisting}
@@ -133,7 +133,7 @@ name = "World!"
 print "Hello ", name
 \end{lstlisting}
 \subsection{Types}
-As with all programming languagues, Python will make use of different types to store different pieces of data. Examples of basic types are Integer, Float, String and Boolean. An Integer is any whole number. For example the number 3 is an integer whereas 3.1 is not. A floating point number (or Float) is a number which includes a decimal point. Examples of a float are -3.1 or 5.0 (beware of the difference between 5.0 and 5). A String is used to define text, we have used strings previously to define words in our Hello World program. Strings are denoted by the quotation marks that surround them, e.g. ``Hello'' is a String but Hello is not. Python automatically assigns types to variables when they are used based on what data you have stored in them. We can see what data type Python has assigned by using the function type() (More on functions later on!). This is demonstrated in this example:
+As with all programming languages, Python will make use of different types to store different pieces of data. Examples of basic types are Integer, Float, String and Boolean. An Integer is any whole number. For example the number 3 is an integer whereas 3.1 is not. A floating point number (or Float) is a number which includes a decimal point. Examples of a float are -3.1 or 5.0 (beware of the difference between 5.0 and 5). A String is used to define text, we have used strings previously to define words in our Hello World program. Strings are denoted by the quotation marks that surround them, e.g. ``Hello'' is a String but Hello is not. Python automatically assigns types to variables when they are used based on what data you have stored in them. We can see what data type Python has assigned by using the function type() (More on functions later on!). This is demonstrated in this example:
 \begin{lstlisting}
 integer = 5
 float_number = 1.2
@@ -327,7 +327,7 @@ for i in xrange(0, 10):
 	print res, "+", i, "=", new_res
 	res = new_res
 \end{lstlisting}
-See if you can guess the program flow before running the program. Write on a piece of paper what you think the program will output before running it. This is a simple example of how we can use functions to offload work to the computer. Using a combination of a function and a for loop we have saved us having to write 10 seperate lines of addition. You can see how this can only help more in longer programs.
+See if you can guess the program flow before running the program. Write on a piece of paper what you think the program will output before running it. This is a simple example of how we can use functions to offload work to the computer. Using a combination of a function and a for loop we have saved us having to write 10 separate lines of addition. You can see how this can only help more in longer programs.
 
 
 \section{Further Reading}
@@ -355,7 +355,7 @@ while True:
 \end{lstlisting}
 The first 2 lines, the import lines, tell Python to load some libraries it has stored (additional code). We use RPi.GPIO to interact with the GPIO pins and time to cause a delay with time.sleep(1).\\
 \\
-In the next 3 lines we have to setup the GPIO pins to allow us to use them, the first line tells the program what configuration the pins are in (Pinouts can be found here /url{http://www.hobbytronics.co.uk/raspberry-pi-gpio-pinout}), the second line tells the program to set PIN16 as an output and the 3rd line tells us to set the initial value of PIN16 to 0 (OFF). We then have a loop which cycles PIN16 from OFF to ON and back with a time delay of 1 second. We use a Boolean ``off'' to keep track of the state of the LED light so we know to turn it on or off within our loop. The overall output of the program should be a blinking LED if you attach an LED correctly to PIN16 and GROUND.
+In the next 3 lines we have to setup the GPIO pins to allow us to use them, the first line tells the program what configuration the pins are in (Pinouts can be found here \url{http://www.hobbytronics.co.uk/raspberry-pi-gpio-pinout}), the second line tells the program to set PIN16 as an output and the 3rd line tells us to set the initial value of PIN16 to 0 (OFF). We then have a loop which cycles PIN16 from OFF to ON and back with a time delay of 1 second. We use a Boolean ``off'' to keep track of the state of the LED light so we know to turn it on or off within our loop. The overall output of the program should be a blinking LED if you attach an LED correctly to PIN16 and GROUND.
 
 
 
